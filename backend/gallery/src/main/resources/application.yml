@@ -1,0 +1,22 @@
+server:
+  port: 3335
+spring:
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/sas_energy
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+
+  cloudinary:
+    cloud-name: dadhrmy3u
+    api-key: 852166379341748
+    api-secret: CD7ls-D-JE9cuUN6uJpw0wD-Ix4
+
+  ssl:
+    enabled: false
