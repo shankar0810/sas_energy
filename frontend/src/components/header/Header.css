@@ -1,0 +1,33 @@
+.header-container{
+    background-color: rgb(87, 179, 62);
+}
+ 
+.scrolling-text{
+    display: inline-block;
+    animation: scrollText 30s linear infinite;
+}
+  
+@keyframes scrollText {
+    0% {
+      transform: translateX(100%); /* Start completely outside on the right */
+    }
+    100% {
+      transform: translateX(-100%); /* Move completely outside on the left */
+    }
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-items a {
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-items a:hover {
+  color: #d1d5db; /* Tailwind's gray-300 */
+}
+   
