@@ -106,7 +106,7 @@ function Header() {
       </nav>
       
       {/* Announcements */}
-      <div className="max-w-[85rem] px-2.5 py-2.5 sm:px-6 lg:px-8 mx-auto text-center">
+      <div className="max-w-100 px-2.5 py-2.5 sm:px-6 lg:px-8 mx-auto text-center overflow-hidden">
         <span className="scrolling-text items-center text-white text-sm">
             📞 +91-8106064455, 7207111888, 8019242444, 9542491639 &nbsp; | &nbsp; 📧 sriassociates.hyderabad@gmail.com, info@sasenergy.in &nbsp;
         </span>
