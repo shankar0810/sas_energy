@@ -1,5 +1,9 @@
 .header-container{
-    background-color: rgb(87, 179, 62);
+  background-color: rgb(87, 179, 62);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50; /* Ensure it stays above other elements */
 }
  
 .scrolling-text{
