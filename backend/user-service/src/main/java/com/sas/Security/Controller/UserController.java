@@ -78,6 +78,24 @@ public class UserController {
         return ResponseEntity.badRequest().body("Invalid request or user not found.");
     }
 
+    @PostMapping("/forgot-password")
+    public ResponseEntity<String> forgotPassword(@RequestParam String email) {
+        service.generateResetToken(email);
+        return ResponseEntity.ok("Password reset link sent to your email.");
+    }
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<String> resetPassword(
+            @RequestParam String token,
+            @RequestParam String newPassword
+    ) {
+        if (service.resetPassword(token, newPassword)) {
+            return ResponseEntity.ok("Password reset successfully.");
+        } else {
+            return ResponseEntity.badRequest().body("Invalid or expired token.");
+        }
+    }
+
 
     @GetMapping("/getallusers")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")

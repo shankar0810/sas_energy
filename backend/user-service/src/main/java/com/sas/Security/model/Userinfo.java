@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -19,4 +21,7 @@ public class Userinfo {
     private String password;
     private String roles;
     private String status;
+
+    private String resetToken; // Token for password reset
+    private Date resetTokenExpiry;
 }

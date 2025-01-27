@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface Userinforepository extends JpaRepository<Userinfo, Integer> {
     Optional<Userinfo> findByName(String username);
-
     List<Userinfo> findByRoles(String roleAdmin);
+    Optional<Userinfo> findByEmail(String email);
+    Optional<Userinfo> findByResetToken(String resetToken);
 }

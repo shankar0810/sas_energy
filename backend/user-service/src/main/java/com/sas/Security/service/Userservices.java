@@ -3,10 +3,14 @@ package com.sas.Security.service;
 import com.sas.Security.model.Userinfo;
 import com.sas.Security.repository.Userinforepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class Userservices {
@@ -14,6 +18,8 @@ public class Userservices {
     private Userinforepository repo;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private JavaMailSender mailSender;
 
     public String addUser(Userinfo userInfo) {
         userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
@@ -37,6 +43,42 @@ public class Userservices {
 
         repo.save(userInfo);
         return "user added to system ";
+    }
+
+    public void generateResetToken(String email) {
+        Userinfo user = repo.findByEmail(email).orElse(null);
+        if (user != null) {
+            // Generate a unique reset token
+            String resetToken = UUID.randomUUID().toString();
+            user.setResetToken(resetToken);
+            user.setResetTokenExpiry(new Date(System.currentTimeMillis() + 3600000)); // Token valid for 1 hour
+            repo.save(user);
+
+            // Send the reset token to the user's email (you can implement this part)
+            sendResetEmail(user.getEmail(), resetToken);
+        }
+    }
+
+    public boolean resetPassword(String token, String newPassword) {
+        Userinfo user = repo.findByResetToken(token).orElse(null);
+        if (user != null && user.getResetTokenExpiry().after(new Date())) {
+            // Token is valid, reset the password
+            user.setPassword(passwordEncoder.encode(newPassword));
+            user.setResetToken(null); // Clear the reset token
+            user.setResetTokenExpiry(null); // Clear the expiry
+            repo.save(user);
+            return true;
+        }
+        return false; // Token is invalid or expired
+    }
+
+    private void sendResetEmail(String email, String resetToken) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(email);
+        message.setSubject("Password Reset Request");
+        String resetLink = "http://localhost:3333/api/v1/reset-password?token=" + resetToken;
+        message.setText("To reset your password, click the link below:\n" + resetLink);
+        mailSender.send(message);
     }
 
     public List<Userinfo> getallusers() {
