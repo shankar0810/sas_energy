@@ -18,4 +18,5 @@ public class Userinfo {
     private String email;
     private String password;
     private String roles;
+    private String status;
 }

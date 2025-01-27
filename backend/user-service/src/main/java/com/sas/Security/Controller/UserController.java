@@ -57,6 +57,27 @@ public class UserController {
         }
     }
 
+    @PostMapping("/approveAdmin")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    public ResponseEntity<String> approveAdmin(
+            @RequestParam String username, // Use username or email
+            @RequestParam boolean approve
+    ) {
+        Userinfo user = service.getUserByUsername(username); // Fetch user by username or email
+        if (user != null && user.getRoles().contains("ROLE_ADMIN") && user.getStatus().equals("PENDING")) {
+            if (approve) {
+                user.setStatus("APPROVED");
+                service.updateUser(user);
+                return ResponseEntity.ok("Admin approved successfully.");
+            } else {
+                user.setStatus("DECLINED");
+                service.updateUser(user);
+                return ResponseEntity.ok("Admin registration declined.");
+            }
+        }
+        return ResponseEntity.badRequest().body("Invalid request or user not found.");
+    }
+
 
     @GetMapping("/getallusers")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
