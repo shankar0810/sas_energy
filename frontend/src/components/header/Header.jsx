@@ -15,7 +15,7 @@ function Header() {
           <div className="flex justify-between h-16">
             {/* Logo Section */}
             <div className="flex-shrink-0 flex items-center">
-              <img src={sas} alt="SAS_logo" className="h-40 w-auto" />
+              <img src={sas} alt="SAS_logo" className="h-32 w-auto" />
             </div>
 
             {/* Desktop Navigation */}

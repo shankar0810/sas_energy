@@ -45,4 +45,14 @@ public class ImageServiceImpl implements ImageService {
 
 
     }
+
+    @Override
+    public ResponseEntity<Map> getAllImages() {
+        try {
+            return ResponseEntity.ok().body(Map.of("images", imageRepository.findAll()));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
