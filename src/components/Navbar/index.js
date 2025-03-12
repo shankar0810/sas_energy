@@ -5,11 +5,14 @@ import logo from "../../assets/logo.png";
 import { IoIosArrowBack } from "react-icons/io";
 
 const services = [
-  { title: "Consultation Services", path: "/consultation" },
-  { title: "Professional Development", path: "/development" },
-  { title: "Training Programs", path: "/training" },
-  { title: "Strategic Planning", path: "/planning" },
-  { title: "Project Management", path: "/management" },
+  { title: "Solar Power Plants", path: "/service-power-plant" },
+  { title: "Solar Grid Tied Inverters", path: "/service-solar-grid" },
+  { title: "Solar Off Grid Inverters", path: "/service-solar-offgrid" },
+  { title: "Solar Water Pumping Solutions", path: "/service-solar-water-pumping" },
+  { title: "Solar Water Heating Systems", path: "/service-solar-water-heating" },
+  { title: "Solar LED Street Lighting System", path: "/service-solar-led-street-lighting" },
+  { title: "Solar & UPS Power Batteries", path: "/service-solar-ups" },
+  { title: "Solar Fencing", path: "/service-solar-fencing" },
 ];
 
 function Navbar() {
@@ -86,8 +89,8 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link to="/programs" className="nav-link">
-                Programs
+              <Link to="/projects" className="nav-link">
+                Projects
               </Link>
             </li>
             <li>
@@ -96,7 +99,7 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="nav-link">
+              <Link to="/contact-us" className="nav-link">
                 Contact Us
               </Link>
             </li>

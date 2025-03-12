@@ -1,0 +1,32 @@
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.gallery-top-section {
+  background-image: url("../../assets/about-us.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 70px;
+  box-sizing: border-box;
+}
+.gallery-bottom-section {
+    width: 80%;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:30px;
+
+  }
+
+  .gallary-image{
+    
+    width: 47%;
+  }
