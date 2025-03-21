@@ -1,4 +1,5 @@
-import React ,{useState,useRef} from 'react';
+import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import TopBanner from "../TopBanner";
 import Navbar from "../Navbar";
 import BlogCard from "../BlogCard";
@@ -19,14 +20,15 @@ import Testimonial4 from "../../assets/testimonial-4.jpg";
 import Blog1 from "../../assets/blog-1.jpg";
 import Blog2 from "../../assets/blog-2.jpg";
 import Blog3 from "../../assets/blog-3.jpg";
-import award1 from '../../assets/award1.png';
-import award2 from '../../assets/award2.png';
-import award3 from '../../assets/award3.png';
-import award4 from '../../assets/award4.png';
-import award5 from '../../assets/award5.png';
-import award6 from '../../assets/award6.png';
-import { HiOutlinePause ,HiOutlinePlay  } from "react-icons/hi";
-import Footer from '../Footer';
+import award1 from "../../assets/award1.png";
+import award2 from "../../assets/award2.png";
+import award3 from "../../assets/award3.png";
+import award4 from "../../assets/award4.png";
+import award5 from "../../assets/award5.png";
+import award6 from "../../assets/award6.png";
+import { HiOutlinePause, HiOutlinePlay } from "react-icons/hi";
+import Footer from "../Footer";
+
 
 const services = [
   {
@@ -103,20 +105,29 @@ const blogData = [
   },
 ];
 
-const awards =[
-  award1,award2,award3,award4,award5,award6
-
-]
+const awards = [award1, award2, award3, award4, award5, award6];
 
 function LandingPage() {
   const [isPaused, setIsPaused] = useState(false);
   const marqueeRef = useRef(null);
-
+  const navigate = useNavigate();
   const togglePause = () => {
     setIsPaused((prev) => !prev);
     if (marqueeRef.current) {
-      marqueeRef.current.style.animationPlayState = isPaused ? "running" : "paused";
+      marqueeRef.current.style.animationPlayState = isPaused
+        ? "running"
+        : "paused";
     }
+  };
+
+
+
+  const handleSignUp = () => {
+    navigate("/signup");
+  };
+
+  const handleSignIn = () => {
+    navigate("/login");
   };
   return (
     <>
@@ -246,42 +257,59 @@ function LandingPage() {
                 <h3 className="step-title">{step.title}</h3>
                 <p className="step-description">{step.description}</p>
               </div>
-               <div className="step-line"></div>
+              <div className="step-line"></div>
             </div>
           ))}
         </div>
       </div>
       <div className="blog-section">
-      <h4 className="blog-subtitle">FROM THE BLOG</h4>
-      <div className="blog-top-sec">
-      <h1 className="blog-sec-title">Latest News & Blog</h1>
-      <button className="more-blog">MORE BLOG</button>
-      </div>
-      <div className="blog-container">
-        {blogData.map((blog) => (
-          <BlogCard key={blog.id} blog={blog} />
-        ))}
-      </div>
-      
-    </div>
-    <div className='awards-section'>
-        <h1 className='awards-head'>OUR AWARDS</h1>
-
-    <div className="marquee-container">
-    <button className="pause-button" onClick={togglePause}>
-        {isPaused ? <HiOutlinePlay style={{fontSize:'35px',strokeWidth:'1.5'}}/> : <HiOutlinePause style={{fontSize:'35px',strokeWidth:'1.5'}} /> }
-      </button>
-      <div className="marquee-wrapper">
-        <div className="marquee" ref={marqueeRef}>
-          {awards.concat(awards).map((award, index) => (
-            <img key={index} src={award} alt={`Award ${index + 1}`} className="marquee-item" />
+        <h4 className="blog-subtitle">FROM THE BLOG</h4>
+        <div className="blog-top-sec">
+          <h1 className="blog-sec-title">Latest News & Blog</h1>
+          <button className="more-blog">MORE BLOG</button>
+        </div>
+        <div className="blog-container">
+          {blogData.map((blog) => (
+            <BlogCard key={blog.id} blog={blog} />
           ))}
         </div>
       </div>
-   
-    </div>
-    </div>
-    <Footer/>
+      <div className="awards-section">
+        <h1 className="awards-head">OUR AWARDS</h1>
+
+        <div className="marquee-container">
+          <button className="pause-button" onClick={togglePause}>
+            {isPaused ? (
+              <HiOutlinePlay style={{ fontSize: "35px", strokeWidth: "1.5" }} />
+            ) : (
+              <HiOutlinePause
+                style={{ fontSize: "35px", strokeWidth: "1.5" }}
+              />
+            )}
+          </button>
+          <div className="marquee-wrapper">
+            <div className="marquee" ref={marqueeRef}>
+              {awards.concat(awards).map((award, index) => (
+                <img
+                  key={index}
+                  src={award}
+                  alt={`Award ${index + 1}`}
+                  className="marquee-item"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="login-section">
+        <h1 className="login-sec-head">Admin's Section</h1>
+        <div className="login-button-section">
+          <button className="login-button" onClick={handleSignUp}>Sign Up</button>
+          <button className="login-button" onClick={handleSignIn}>Sign In</button>
+        </div>
+      </div>
+
+      <Footer />
     </>
   );
 }

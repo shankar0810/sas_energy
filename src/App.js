@@ -13,6 +13,8 @@ import Projects from "./components/Projects";
 import EachProject1 from "./components/EachProject1";
 import ContactUs from "./components/ContactUs";
 import Gallery from "./components/Gallery";
+import Signup from "./components/SignUp";
+import Login from "./components/Login";
 
 
 
@@ -36,6 +38,8 @@ function App() {
         <Route path="/each-project" element={<EachProject1/>} />
         <Route path='/contact-us' element={<ContactUs/>}/>
         <Route path='/gallery' element={<Gallery/>}/>
+        <Route path='/signup' element={<Signup/>}/>
+        <Route path='/login' element={<Login/>}/>
         
         
     </Routes>
