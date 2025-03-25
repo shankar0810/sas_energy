@@ -1,0 +1,313 @@
+.about-us-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.about-us-top-section {
+  background-image: url("../../assets/about-us.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 70px;
+  box-sizing: border-box;
+}
+.about-us-head {
+  font-size: 50px;
+  color: white;
+}
+
+.about-us-hero-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 50px;
+  gap: 100px;
+  padding-left: 120px;
+}
+
+.about-us-image-container {
+  position: relative;
+  max-width: 420px;
+}
+
+.about-us-main-image {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-left: 10px solid #008000;
+  padding-left: 20px;
+}
+
+.about-us-small-image {
+  position: absolute;
+  bottom: 4px;
+  left: -80px;
+  width: 60%;
+  
+ object-fit: cover;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-us-content-container {
+ width: 50%;
+}
+
+.about-us-about-text {
+  color: green;
+  font-weight: bold;
+}
+
+.about-us-h1 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.about-us-highlight {
+  color: #0a6d12;
+}
+.about-us-para{
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+.about-us-read-more-btn{
+    height: 40px;
+    width: 150px;
+    background-color: #00A800;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-size: 14px;
+    border-radius: 8px;
+}
+.about-us-read-more-btn:hover{
+    background-color: #0a6d12;
+}
+.about-us-row-section {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.about-us-row-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/about-us.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: brightness(50%);
+    z-index: -1;
+}
+
+.about-us-row-section-each-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    position: relative;
+    z-index: 1;
+}
+.about-us-icon{
+    height: 60px;
+    width: 60px;
+}
+.about-us-para2{
+    font-size: 12px;
+    color: white;
+    margin: 2px 0px;
+}
+.about-us-head2{
+    font-size: 20px;
+    color: white;
+    margin: 3px 0px;
+}
+.about-us-experience-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 40px;
+    background-color: #f8f9fa;
+    height: 100vh;
+    box-sizing: border-box;
+    padding-right: 0;
+  }
+  
+  .about-us-experience-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
+    padding-top: 10px;
+    padding-right: 50px;
+    box-sizing: border-box;
+  }
+  
+  .about-us-experience-subtitle {
+    /* color: #27ae60; */
+    color: green;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .about-us-experience-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+  
+  .about-us-experience-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .about-us-experience-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .about-us-progress-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  .about-us-progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  .about-us-progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .about-us-progress-fill {
+    height: 100%;
+    background-color: green;
+    border-radius: 4px;
+  }
+  
+  .about-us-experience-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    background-image: url("../../assets/testimonial-2.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+
+  }
+  .about-us-content-section{
+    background-color:#daebda ;
+    padding: 60px 50px;
+  }
+  .about-us-head3{
+    font-size: 32px;
+  }
+  .about-us-para3{
+    font-size: 18px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+  .about-us-company-profile-section{
+    height: 300px;
+    width: 800px;
+    border-radius: 10px;
+    background-color: #00A800;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+    padding: 20px;
+  }
+.about-us-download-btn{
+    border: 1.5px solid white;
+    color: white;
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    background-color: #00A800;
+}
+.about-us-download-btn:hover{
+    background-color: #0a6d12;
+}
+.about-us-head4{
+    font-size: 30px;
+    color: white;
+    margin: 0;
+
+}
+.about-us-para4{
+    font-size: 20px;
+    line-height: 1.5;
+    color: white;
+    text-align: center;
+}
+.about-us-milestone-section{
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+.about-us-milestone-section ul{
+  list-style-type: disc;
+  padding-left: 50px;
+}
+.about-us-milestone-section ul li{
+  font-size: 18px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+@media (max-width: 768px) {
+  .about-us-home-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-us-small-image {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

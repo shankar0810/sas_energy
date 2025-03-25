@@ -1,0 +1,72 @@
+.services2-image-section{
+    background-image: url('../../assets/services-bg.jpg');
+    height: 450px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.services2-head{
+    font-size: 50px;
+    color: green;
+}
+.service2-head2{
+    font-size: 25px;
+    color: black;
+}
+.services2-content-img-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    gap:50px;
+
+}
+.services2-content-img-left-section{
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+}
+.services2-content-img-right-section{
+    width: 50%;
+    background-image: url('../../assets/service2.jpg');
+    background-size: cover;
+    
+    height: 100%;
+}
+.service2-para{
+    font-size: 20px;
+    color: rgb(102,102,102);
+    line-height: 1.5;
+}
+.service2-para2{
+    font-size: 20px;
+    color: rgb(102,102,102);
+    line-height: 1.5;
+    width: 90%;
+    margin: 40px auto;
+}
+
+.service2-list-cont{
+    width: 90%;
+    margin: 0px auto;  
+}
+
+.service2-list{
+    list-style-type: disc;
+    padding: 20px;
+    margin: 20px;
+    margin-bottom: 100px;
+
+}
+.service2-list li{
+    font-size: 20px;
+    color: rgb(102,102,102);
+    line-height: 1.5;
+}

@@ -1,0 +1,80 @@
+.services6-image-section{
+    background-image: url('../../assets/services-bg.jpg');
+    height: 450px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.services6-head{
+    font-size: 50px;
+    color: green;
+}
+.service6-head2{
+    font-size: 25px;
+    color: black;
+}
+.services6-content-img-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    gap:50px;
+
+}
+.services6-content-img-left-section{
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-right: 5%;
+}
+.services6-content-img-right-section{
+    width: 50%;
+    background-image: url('../../assets/service6.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+.service6-para{
+    font-size: 20px;
+    color: rgb(102,102,102);
+    line-height: 1.5;
+}
+.service6-para2{
+    font-size: 20px;
+    color: rgb(102,102,102);
+    line-height: 1.5;
+    width: 90%;
+    margin: 40px auto;
+}
+
+.service6-list-cont{
+    width: 90%;
+    margin: 0px auto;  
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+
+.service6-list{
+    list-style-type: disc;
+    padding: 20px;
+    margin: 20px;
+    
+
+}
+.service6-list li{
+    font-size: 20px;
+    color: rgb(102,102,102);
+    line-height: 1.5;
+}
+
+.no-space2{
+    padding-left: 0;
+    margin-top: 20px;
+    margin-left: 0;
+}
