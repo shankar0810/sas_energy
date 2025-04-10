@@ -301,13 +301,6 @@ function LandingPage() {
           </div>
         </div>
       </div>
-      <div className="login-section">
-        <h1 className="login-sec-head">Admin's Section</h1>
-        <div className="login-button-section">
-          <button className="login-button" onClick={handleSignUp}>Sign Up</button>
-          <button className="login-button" onClick={handleSignIn}>Sign In</button>
-        </div>
-      </div>
 
       <Footer />
     </>

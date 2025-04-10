@@ -22,7 +22,7 @@
 }
 
 .nav-right-content {
-  width: 60%;
+  width: 70%;
   color: black;
   font-size: 12px;
   display: flex;
@@ -41,6 +41,7 @@
   margin: 0;
   padding: 0;
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
@@ -164,7 +165,16 @@
   position: relative;
   width: 100vw;
 }
-
+.login-nav-button{
+  height: 30px ;
+  width: 100px;
+  background-color: #008000;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+}
 .hamburger {
   display: flex;
   flex-direction: column;

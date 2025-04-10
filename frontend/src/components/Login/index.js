@@ -42,6 +42,7 @@ const Login = () => {
         <p className="forgot-password" onClick={() => alert("Forgot Password Clicked")}>
           Forgot Password?
         </p>
+        <p>New User? <span className="forgot-password" onClick={()=>navigate("/signup")}>Register Here</span></p>
       </div>
     </div>
   );

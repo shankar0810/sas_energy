@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import "./index.css";
 import logo from "../../assets/logo.png";
@@ -19,6 +19,7 @@ function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleServices = () => {
     setIsServicesOpen(!isServicesOpen);
@@ -35,6 +36,10 @@ function Navbar() {
 
   const closeMobileServices = () => {
     setIsMobileServicesOpen(false);
+  };
+
+  const handleSignIn = () => {
+    navigate("/login");
   };
 
   return (
@@ -102,6 +107,9 @@ function Navbar() {
               <Link to="/contact-us" className="nav-link">
                 Contact Us
               </Link>
+            </li>
+            <li>
+            <button className="login-nav-button" onClick={handleSignIn}>Sign In</button>
             </li>
           </ul>
         </div>
