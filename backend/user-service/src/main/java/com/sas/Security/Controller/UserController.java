@@ -20,6 +20,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin(origins = "*")
 public class UserController {
     @Autowired
     private Userservices service;
@@ -37,7 +38,7 @@ public class UserController {
     public ResponseEntity<?> authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
         // Authenticate the user
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
+                new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword()));
 
         if (authentication.isAuthenticated()) {
             // Extract the role from the authenticated user's details
@@ -49,7 +50,7 @@ public class UserController {
             Map<String, Object> response = new HashMap<>();
             response.put("token", token);
             response.put("role", role);
-            response.put("username", userDetails.getUsername());
+            response.put("email", userDetails.getUsername());
 
             return ResponseEntity.ok(response);
         } else {
@@ -60,10 +61,10 @@ public class UserController {
     @PostMapping("/approveAdmin")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<String> approveAdmin(
-            @RequestParam String username, // Use username or email
+            @RequestParam String email, // Use email or email
             @RequestParam boolean approve
     ) {
-        Userinfo user = service.getUserByUsername(username); // Fetch user by username or email
+        Userinfo user = service.getUserByUsername(email); // Fetch user by email or email
         if (user != null && user.getRoles().contains("ROLE_ADMIN") && user.getStatus().equals("PENDING")) {
             if (approve) {
                 user.setStatus("APPROVED");

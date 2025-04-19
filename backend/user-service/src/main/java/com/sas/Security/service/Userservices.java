@@ -76,7 +76,7 @@ public class Userservices {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
         message.setSubject("Password Reset Request");
-        String resetLink = "http://localhost:3333/api/v1/reset-password?token=" + resetToken;
+        String resetLink = "http://localhost:3000/reset-password?token=" + resetToken;
         message.setText("To reset your password, click the link below:\n" + resetLink);
         mailSender.send(message);
     }
@@ -104,7 +104,7 @@ public class Userservices {
         repo.save(user);
     }
 
-    public Userinfo getUserByUsername(String username) {
-        return repo.findByName(username).orElse(null); // Fetch by username
+    public Userinfo getUserByUsername(String email) {
+        return repo.findByEmail(email).orElse(null); // Fetch by username
     }
 }
