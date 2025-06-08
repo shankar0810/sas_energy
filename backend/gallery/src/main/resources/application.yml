@@ -1,22 +1,61 @@
 server:
   port: 3335
+
 spring:
+  application:
+    name: gallery-service
 
   datasource:
     url: jdbc:mysql://localhost:3306/sas_energy
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
 
   jpa:
     hibernate:
       ddl-auto: update
-      show-sql: true
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
 
-  cloudinary:
-    cloud-name: dadhrmy3u
-    api-key: 852166379341748
-    api-secret: CD7ls-D-JE9cuUN6uJpw0wD-Ix4
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
 
-  ssl:
-    enabled: false
+# JWT Configuration (must match your user service)
+jwt:
+  secret: be36a0b2e9845e2787bdc1f1d725c551b93e18c8a75df9d61a14d6e3e2952b27f5b6fcf7107c587eaaaecd61872cc62581bcc51be0863d2dc4ff8fda85ce1da5f96b435a823e8770c6ce02264e0c64e53de08383bb518ff37f88611fa2b4a0cc69c50259acabfbf6396b05997841b11b85292cff3501b4f8466350dfe79598eacf3a4bfae18f2bb8ad6dec6030a961fdd2a3df672aeddb2a8e91e714e667e50a124b25a39cba43510154e5623a943c6d5681bef319f53df8bc9c2b9acc6eadbe631daa56916e86fb2fc81c5be7ced52dc0e3bdfa8a9b1a1c30dfee528fd9a755f08af454c56fa6ca16654b82ec6adb4822cdf60d35f287b442afcd6e106db1fb
+  expiration: 86400000 # 24 hours
+
+# Cloudinary Configuration
+cloudinary:
+  cloud-name: dadhrmy3u
+  api-key: 145766125283879
+  api-secret: _cb0API0Yfg8ryeu8M0dh0l7h2M
+
+# Logging
+logging:
+  level:
+    com.sas.gallery: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Management endpoints for health checks
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

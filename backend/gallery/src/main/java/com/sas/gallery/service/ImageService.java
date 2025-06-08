@@ -1,12 +1,13 @@
 package com.sas.gallery.service;
 
-import com.sas.gallery.Dto.gallerydto;
-import org.springframework.http.ResponseEntity;
+import com.sas.gallery.Dto.GalleryDto;
+import com.sas.gallery.Dto.GalleryResponseDto;
 
-import java.util.Map;
+import java.util.List;
 
 public interface ImageService {
-    ResponseEntity<Map> uploadImage(gallerydto imageModel);
-
-    ResponseEntity<Map> getAllImages();
+    GalleryResponseDto uploadImage(GalleryDto galleryDto, String username);
+    List<GalleryResponseDto> getAllImages();
+    GalleryResponseDto getImageById(Long id);
+    boolean deleteImage(Long id, String username);
 }
